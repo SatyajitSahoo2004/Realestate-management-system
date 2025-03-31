@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Real Estate Management</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> 
+</head>
+<body>
+    {% include "header.html" %}
+
+    <div class="container mt-5">
+        <h1 class="text-center">Our Services</h1>
+        <p class="text-center">We offer a range of real estate services to simplify buying, selling, and renting properties.</p>
+
+        <!-- Services Section -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card shadow p-3">
+                    <h3>🏡 Property Listings</h3>
+                    <p>Find and explore verified properties with detailed descriptions, images, and pricing.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow p-3">
+                    <h3>📝 Property Management</h3>
+                    <p>We help landlords manage their properties efficiently with tracking and tenant management features.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow p-3">
+                    <h3>🔍 Property Search</h3>
+                    <p>Advanced search filters to help you find the perfect property based on location, price, and features.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card shadow p-3">
+                    <h3>📜 Legal Assistance</h3>
+                    <p>Get expert legal advice for buying or selling properties with ease and confidence.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow p-3">
+                    <h3>📊 Market Analysis</h3>
+                    <p>Stay updated with real estate trends, property values, and investment insights.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow p-3">
+                    <h3>🤝 Consultation</h3>
+                    <p>Connect with real estate professionals for expert guidance and property investment strategies.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Home Button -->
+        <div class="text-center mt-4">
+           
+        </div>
+    </div>
+    {% include "footer.html" %}
+
+</body>
+</html>

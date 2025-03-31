@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Real Estate Management</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> 
+</head>
+<body>
+    {% include "header.html" %}
+    <div class="container mt-5">
+        <h1 class="text-center">About Us</h1>
+        <p class="text-center">Welcome to the Real Estate Management System! Our platform helps buyers, sellers, and agents connect seamlessly.</p>
+        
+        <h2>Our Mission</h2>
+        <p>We aim to provide a user-friendly, secure, and efficient platform for managing real estate transactions.</p>
+
+        <h2>Why Choose Us?</h2>
+        <p>We offer a streamlined real estate management experience for both professionals and individual users.</p>
+
+        <!-- Back to Home Button -->
+        <div class="text-center">
+            
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

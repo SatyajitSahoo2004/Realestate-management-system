@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-container {
+            margin-top: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+        .profile-heading {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .center-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .card {
+            width: 500px;
+            margin: 0px auto;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    {% include "header.html" %}
+
+
+   
+    <div class="center-wrapper">
+        <div class="profile-container">
+            <h2 class="profile-heading">Update Profile</h2>
+            <form action="./updatedprofile" method="post" autocomplete="off" id="myform">
+                {% if messages %}
+                <div class="mt-4">
+                {% for message in messages %}
+                <p class="text-center {% if message.tags == 'success' %}text-success{% elif message.tags == 'error' %}text-danger{% elif message.tags == 'info' %}text-info{% elif message.tags == 'warning' %}text-warning{% endif %}">{{ message }}</p>
+                {% endfor %}
+                    </div>
+                {% endif %}
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="id" name="id" value="{{ user.id }}" required>
+                    <label for="name">Full Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ user.name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" class="form-control" id="phone" name="phone" value="{{ user.mobile }}" readonly >
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Save Changes</button>
+            </form>
+
+            <a href="{% url 'profile' %}" class="btn btn-secondary btn-block mt-3">Back to Profile</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+    jQuery.validator.setDefaults({
+        debug: true,
+        success: "valid"
+    });
+    $("#myform").validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 6
+            }
+        },
+        submitHandler: function(form) {
+            form.submit();
+          }
+    });
+</script>
+    {% include "footer.html" %}

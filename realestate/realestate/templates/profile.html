@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Real Estate Management</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-container {
+            margin-top: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            text-align: center;
+        }
+        .center-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    {% include "header.html" %}
+
+
+   
+
+    <div class="center-wrapper">
+        <div class="profile-container">
+            <h2 class="profile-heading">My Profile</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Full Name:</th>
+                    <td>{{ user.name }}</td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                    <th>Phone:</th>
+                    <td>{{ user.mobile }}</td>
+                </tr>
+            </table>
+            <a href="{% url 'updateprofile' %}" class="btn btn-primary btn-block mt-3">Edit Profile</a>
+        </div>
+    </div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% include "footer.html" %}
+
+</body>
+</html>
